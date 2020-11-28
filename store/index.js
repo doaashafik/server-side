@@ -35,12 +35,9 @@ export const initializeStore = (preloadedState) => {
   if(!store) {
      setStorewithInitState(preloadedState);
    }
-   console.log(store.getState().cart, 'item')
-   if(preloadedState && store) {
-      setStorewithInitState({
-        ...store.getState(),
-        ...preloadedState
-     })
-   }
+   setStorewithInitState({
+    ...preloadedState,
+    ...store.getState(),
+ })
   return store;
 };

@@ -4,17 +4,18 @@ import { addItemToCart } from "../../store/Cart/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { open } from "../../components/notification/Notification";
 import { initializeStore } from "../../store";
-import { allProductsRequest } from '../../store/Product/actions'
-
-// export function getServerSideProps() {
-//   const store = initializeStore();
-//   store.dispatch(allProductsRequest());
-//   return {
-//     props: {
-//       state: store.getState(),
-//     },
-//   };
-// }
+import { allProductsRecieved } from '../../store/Product/actions'
+import { allProductsRequest } from '../../network/apis/Requests/Product'
+export async function getServerSideProps() {
+  const store = initializeStore();
+  const result = await allProductsRequest()
+  store.dispatch(allProductsRecieved(result.data));
+  return {
+    props: {
+      state: store.getState(),
+    },
+  };
+}
 
 
 const ProductList = () => {
