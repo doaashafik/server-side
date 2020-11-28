@@ -1,0 +1,21 @@
+.product-checkout {
+  border: 1px solid;
+  padding: 9px;
+  margin: 20px 10px;
+  display: block;
+  width: 200px;
+  text-align: center;
+}
+.cart-product 
+.add-to-cart {
+    display: flex;
+    width: 78px;
+    align-items: center;
+    justify-content: space-around;
+}
+.cart-header {
+  padding-inline-start: 25px;
+}
+.no-products {
+  color: red;
+}

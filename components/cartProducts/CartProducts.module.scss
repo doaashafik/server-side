@@ -1,0 +1,25 @@
+.cart-product {
+  padding-inline-start: 20px;
+  padding: 10px;
+  max-width: 600px;
+  .content p {
+    max-width: 250px;
+  }
+}
+.badge-icon {
+  vertical-align: inherit;
+}
+.product-icon {
+  cursor: pointer;
+  font-size: 20px;
+}
+.product-image {
+  width: 150px;
+  height: 150px;
+  img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+  }
+}
+
