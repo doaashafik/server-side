@@ -5,7 +5,7 @@ import { Row, Col } from "antd";
 import { submitUserOrder, getTotal } from "../../store/Cart/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import './Order.module.scss'
+import './index.module.scss'
 const Order = ({ history }) => {
   const dispatch = useDispatch();
   const { items, total } = useSelector((state) => state.cart);
