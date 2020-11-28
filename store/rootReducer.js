@@ -7,5 +7,4 @@ export default combineReducers({
     products: productReducer,
     isLoading: loadingReducer,
     cart: cartReducer,
-    init: initReducer
 })

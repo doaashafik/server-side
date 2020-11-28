@@ -8,7 +8,6 @@ import { persistStore, persistReducer } from "redux-persist";
 export let store, persistor;
 
 const setStorewithInitState = (preloadedState) => {
-  console.log
   const persistConfig = {
     key: "root",
     storage,
@@ -21,23 +20,20 @@ const setStorewithInitState = (preloadedState) => {
 
   if (typeof window == "undefined") {
     store = createStore(RootReducer, preloadedState, composedEnhancer);
+    saga.run(rootSaga);
   } else {
      /* handle persist-redux */
     const persistedReducer = persistReducer(persistConfig, RootReducer);
     store = createStore(persistedReducer, preloadedState, composedEnhancer);
     persistor = persistStore(store);
-  }
     saga.run(rootSaga);
+  }
     return store;
 };
 
 export const initializeStore = (preloadedState) => {
-  if(!store) {
-     setStorewithInitState(preloadedState);
-   }
-   setStorewithInitState({
-    ...preloadedState,
-    ...store.getState(),
- })
+ if(!store) {
+  setStorewithInitState(preloadedState);
+ }
   return store;
 };
