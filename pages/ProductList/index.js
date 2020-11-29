@@ -26,7 +26,8 @@ const ProductList = ({ products }) => {
     <div className="product-list-container">
       {products && (
         <div className="mt-2 d-flex flex-wrap justify-content-center">
-          {products.map((item, id) => (
+          {
+          products.map((item, id) => (
             <ProductCard
               key={`${id} id`}
               addToCart={() => handler(item)}
@@ -38,11 +39,5 @@ const ProductList = ({ products }) => {
     </div>
   );
 };
-// ProductDetails.getInitialProps = async ({query}) => {
-//   const res = await allProductsRequest()
-//   const json = await res.json()
-//   return { productDetails : json }
-// }
-
 export default ProductList;
 

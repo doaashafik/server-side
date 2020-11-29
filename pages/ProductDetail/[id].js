@@ -6,7 +6,7 @@ import { Notification, open } from "../../components/notification/Notification";
 import { useSelector } from "react-redux";
 import { SocialNetwork } from "../../components/SocialNetwork/SocialNetwork";
 
-export async function getServerSideProps(props) {
+export async function getStaticProps(props) {
    const id = props.params.id;
   const { data } = await productDetailsRequest(id);
   return {
@@ -18,7 +18,6 @@ export async function getServerSideProps(props) {
 }
 
 const ProductDetail = ({ recieved, product }) => {
-
   return (
     <Fragment>
       {recieved && (
