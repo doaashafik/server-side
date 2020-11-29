@@ -1,6 +1,6 @@
 import React, { useEffect, Fragment } from "react";
-import OrderForm from "../../components/orderForm/OrderForm";
-import { OrderProduct } from "../../components/orderProducts/OrderProducts";
+import OrderForm from "../orderForm/OrderForm";
+import { OrderProduct } from "../orderProducts/OrderProducts";
 import { Row, Col } from "antd";
 import { submitUserOrder, getTotal } from "../../store/Cart/actions";
 import { useDispatch, useSelector } from "react-redux";
