@@ -7,7 +7,6 @@ import {
 } from "../../store/Cart/actions";
 import { MinusSquareOutlined, PlusSquareOutlined } from "@ant-design/icons";
 import { Badge } from "antd";
-import "./AddToCart.module.scss";
 export const AddToCart = ({ notifiy, item }) => {
   const dispatch = useDispatch();
   const { title, id, count } = item;

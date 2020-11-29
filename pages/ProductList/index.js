@@ -1,25 +1,13 @@
 import React, { useEffect } from "react";
 import ProductCard from "../../components/productCard/ProductCard";
 import { addItemToCart } from "../../store/Cart/actions";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { open } from "../../components/notification/Notification";
-import { initializeStore } from "../../store";
-import { allProductsRecieved } from "../../store/Product/actions";
 import { allProductsRequest } from "../../network/apis/Requests/Product";
-export async function getServerSideProps() {
-  const store = initializeStore();
-  const { data } = await allProductsRequest();
-  await store.dispatch(allProductsRecieved(data));
-  return {
-    props: {
-      state: store.getState(),
-    },
-  };
-}
 
 
-const ProductList = () => {
-  const products = useSelector((state) => state.products);
+
+const ProductList = ({ products }) => {
   const dispatch = useDispatch();
   const handler = (item) => {
     open({
@@ -45,4 +33,13 @@ const ProductList = () => {
     </div>
   );
 };
+// ProductDetails.getInitialProps = async ({query}) => {
+//   const res = await allProductsRequest()
+//   const json = await res.json()
+//   return { productDetails : json }
+// }
+ProductList.getInitialProps =async  ({}) => {
+  const { data } = await allProductsRequest();
+  return {products : data };
+}
 export default ProductList;

@@ -9,7 +9,7 @@ const ProductCard = ({ product, addToCart }) => {
   return (
     <Card
       cover={
-         <Link href={`/products/${id}`} className="product-image">
+         <Link href={`/ProductDetail/${id}`} className="product-image">
           <img src={image} alt="product-image" />
         </Link>
       }
