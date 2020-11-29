@@ -11,11 +11,9 @@ export default function App({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <PersistGate loading={<Loading />} persistor={persistor}>
         <Template>
           <Component {...pageProps} />
         </Template>
-      </PersistGate>
     </Provider>
   );
 }
