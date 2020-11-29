@@ -3,8 +3,8 @@ import "../scss/_base.scss";
 import { Provider } from "react-redux";
 import { initializeStore } from "../store";
 import Template from "../components/template/Template";
-
-export default function   MyApp({ Component, pageProps }) {
+import {appWithTranslation} from '../i18n'
+function App({ Component, pageProps }) {
   const store = initializeStore();
   return (
     <Provider store={store}>
@@ -14,3 +14,4 @@ export default function   MyApp({ Component, pageProps }) {
     </Provider>
   );
 }
+export default appWithTranslation(App)

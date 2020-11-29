@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext} from "react";
 import { Card } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import "./ProductCard.module.scss";
 import Link from "next/link";
+import { I18nContext } from 'next-i18next'
 
 const ProductCard = ({ product, addToCart }) => {
   const { price, image, category, title, id } = product;
+  const { i18n: { language } } = useContext(I18nContext)
+
   return (
     <Card
       cover={
-         <Link href={`/ProductDetail/${id}`} className="product-image">
+         <Link href={`/${language}/ProductDetail/${id}`} className="product-image">
           <img src={image} alt="product-image" />
         </Link>
       }
