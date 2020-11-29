@@ -6,9 +6,22 @@ import { Notification, open } from "../../components/notification/Notification";
 import { useSelector } from "react-redux";
 import { SocialNetwork } from "../../components/SocialNetwork/SocialNetwork";
 
-export async function getStaticProps(props) {
-   const id = props.params.id;
-  const { data } = await productDetailsRequest(id);
+// This function gets called at build time
+export async function getStaticPaths() {
+  const res = await fetch(`https://fakestoreapi.com/products/`)
+  const data = await res.json()
+
+  // Get the paths we want to pre-render based on posts
+  const paths = data.map((item) => `/ProductDetail/${item.id}`)
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: false }
+}
+
+export async function getStaticProps({ params }) {
+   const res = await fetch(`https://fakestoreapi.com/products/${params.id}`)
+   const data = await res.json()
   return {
     props: {
       recieved: true,
