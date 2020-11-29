@@ -7,7 +7,6 @@ import { store } from "..";
 
 function* handleAllProducts(query) {
   try {
-    console.log(store,'dd')
     const result = yield call(allProductsRequest, query.payload);
     yield put(allProductsRecieved(result.data));
     yield 
@@ -17,5 +16,5 @@ function* handleAllProducts(query) {
   }  
 }
 export function* ProductSagaWatch() {
-  yield takeEvery(ALL_PRODUCTS, handleAllProducts);
+  //yield takeEvery(ALL_PRODUCTS, handleAllProducts);
 }
