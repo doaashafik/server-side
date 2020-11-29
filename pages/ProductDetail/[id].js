@@ -45,7 +45,7 @@ const ProductDetail = ({ recieved, product }) => {
             <p>{product.price}</p>
           </div>
           <div className={'mt-2'}>
-            <SocialNetwork url={`/ProductDetail/${product.id}`}/>
+            <SocialNetwork url={`https://server-side.vercel.app/ProductDetail/${product.id}`}/>
           </div>
           <p className={'mt-2 text-center'}>{product.description}</p>
         </div>
