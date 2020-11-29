@@ -4,9 +4,10 @@ export default function Home(props) {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <h1 className="text-center">Shopping Cart</h1>
     </div>
   )
 }

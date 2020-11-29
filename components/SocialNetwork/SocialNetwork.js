@@ -9,6 +9,7 @@ import {
 } from "react-share";
 import { Row, Col } from "antd";
 export const SocialNetwork = ({ url }) => {
+    console.log(url, 'dd')
   return (
     <Row align="center">
       <Col span={1}>

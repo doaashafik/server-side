@@ -3,9 +3,14 @@ import ProductCard from "../../components/productCard/ProductCard";
 import { addItemToCart } from "../../store/Cart/actions";
 import { useDispatch } from "react-redux";
 import { open } from "../../components/notification/Notification";
-import { allProductsRequest } from "../../network/apis/Requests/Product";
 
-
+export const getStaticProps = async ({}) => {
+  const res = await fetch(`https://fakestoreapi.com/products/`)
+  const json = await res.json()
+  return { props : {
+    products : json
+  }}
+}
 
 const ProductList = ({ products }) => {
   const dispatch = useDispatch();
@@ -38,8 +43,6 @@ const ProductList = ({ products }) => {
 //   const json = await res.json()
 //   return { productDetails : json }
 // }
-ProductList.getInitialProps =async  ({}) => {
-  const { data } = await allProductsRequest();
-  return {products : data };
-}
+
 export default ProductList;
+
