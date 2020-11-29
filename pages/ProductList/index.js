@@ -6,7 +6,7 @@ import { open } from "../../components/notification/Notification";
 import { initializeStore } from "../../store";
 import { allProductsRecieved } from "../../store/Product/actions";
 import { allProductsRequest } from "../../network/apis/Requests/Product";
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const store = initializeStore();
   const { data } = await allProductsRequest();
   await store.dispatch(allProductsRecieved(data));
