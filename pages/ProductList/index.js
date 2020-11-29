@@ -4,8 +4,8 @@ import { addItemToCart } from "../../store/Cart/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { open } from "../../components/notification/Notification";
 import { initializeStore } from "../../store";
-import { allProductsRequest } from "../../network/apis/Requests/Product";
 import { allProductsRecieved } from "../../store/Product/actions";
+import { allProductsRequest } from "../../network/apis/Requests/Product";
 export async function getStaticProps() {
   const store = initializeStore();
   const { data } = await allProductsRequest();

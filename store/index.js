@@ -14,19 +14,6 @@ const setStorewithInitState = (preloadedState) => {
   const composedEnhancer = composeWithDevTools(applyMiddleware(saga));
     store = createStore(RootReducer, preloadedState, composedEnhancer);
     saga.run(rootSaga);
-  // else {
-  //   const persistConfig = {
-  //     key: "root",
-  //     storage: createWebStorage("local"),
-  //     whiteList: ["products", "cart", 'init'],
-  //     blacklist: ["isLoading"],
-  //   };
-  //    /* handle persist-redux */
-  //   const persistedReducer = persistReducer(persistConfig, RootReducer);
-  //   store = createStore(persistedReducer, preloadedState, composedEnhancer);
-  //   persistor = persistStore(store);
-  //   saga.run(rootSaga);
-  // }
     return store;
 };
 
@@ -34,5 +21,6 @@ export const initializeStore = (preloadedState) => {
  if(!store) {
   setStorewithInitState(preloadedState);
  }
+ console.log(store.getState())
   return store;
 };
